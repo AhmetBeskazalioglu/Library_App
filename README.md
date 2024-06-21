@@ -115,4 +115,4 @@ Bu proje MIT Lisansı ile lisanslanmıştır. Daha fazla bilgi için [LICENSE](L
 
 ## Destek
 
-Projeye katkıda bulunmak veya sorun bildirmek isterseniz, lütfen bir [issue](https://github.com/AhmetBeskazalioglu/AnkeLibraryApp/issues) açın veya bir [pull request](https://github.com/AhmetBeskazalioglu/AnkeLibraryApp/pulls) gönderin.
+Projeye katkıda bulunmak veya sorun bildirmek isterseniz, lütfen bir [issue](https://github.com/AhmetBeskazalioglu/Library_App/issues) açın veya bir [pull request](https://github.com/AhmetBeskazalioglu/Library_App/pulls) gönderin.
