@@ -31,6 +31,6 @@ public class Book {
     @JsonBackReference
     private Publisher publisher;
 
-    @OneToOne(mappedBy = "book", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+    @OneToOne(mappedBy = "book", cascade = CascadeType.ALL, optional = false)
     private Author author;
 }

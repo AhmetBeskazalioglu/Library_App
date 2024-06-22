@@ -24,7 +24,6 @@ public class Publisher {
     private String name;
 
     @OneToMany(mappedBy = "publisher", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-    @JsonBackReference
     private List<Book> books;
 }
 
