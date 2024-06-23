@@ -13,6 +13,9 @@ public class AuthorController {
 
         private AuthorService service;
 
+        public AuthorController() {
+        }
+
         @Autowired
         public AuthorController(AuthorService service) {
             this.service = service;

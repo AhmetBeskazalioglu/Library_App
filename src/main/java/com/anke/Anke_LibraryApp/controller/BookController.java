@@ -1,6 +1,5 @@
 package com.anke.Anke_LibraryApp.controller;
 
-import com.anke.Anke_LibraryApp.entity.Author;
 import com.anke.Anke_LibraryApp.entity.Book;
 import com.anke.Anke_LibraryApp.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +12,9 @@ import java.util.List;
 public class BookController {
 
         private BookService service;
+
+        public BookController() {
+        }
 
         @Autowired
         public BookController(BookService service) {
@@ -28,4 +30,9 @@ public class BookController {
         public Book createBook(@RequestBody Book book) {
             return service.createBook(book);
         }
+
+    @PutMapping("/update")
+    public Book updateBook(@RequestBody Book book) {
+        return service.updateBook(book);
+    }
 }

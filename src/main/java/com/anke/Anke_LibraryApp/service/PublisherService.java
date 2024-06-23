@@ -24,4 +24,12 @@ public class PublisherService {
     public Publisher createPublisher(Publisher publisher) {
         return repository.save(publisher);
     }
+
+    public Publisher getPublisherById(Long id) {
+        return repository.findById(id).orElse(null);
+    }
+
+    public Publisher updatePublisher(Publisher publisher) {
+        return repository.save(publisher);
+    }
 }

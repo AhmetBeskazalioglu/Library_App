@@ -1,15 +1,15 @@
 package com.anke.Anke_LibraryApp.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@AllArgsConstructor
 @Entity
 @Table(name = "author")
 public class Author {
@@ -24,8 +24,8 @@ public class Author {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "book_id")
+    @OneToMany(mappedBy = "author",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
     @JsonBackReference
-    private Book book;
+    private List<Book> books;
+
 }

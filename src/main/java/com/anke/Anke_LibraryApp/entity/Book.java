@@ -1,14 +1,12 @@
 package com.anke.Anke_LibraryApp.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@AllArgsConstructor
 @Entity
 @Table(name = "book")
 public class Book {
@@ -23,14 +21,20 @@ public class Book {
     @Column(name = "price", nullable = false)
     private Double price;
 
-    @Column(name = "isbn", nullable = false, unique = true)
+    @Column(name = "isbn", nullable = false)
     private String isbn;
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "publisher_id", nullable = false)
-    @JsonBackReference
     private Publisher publisher;
 
-    @OneToOne(mappedBy = "book", cascade = CascadeType.ALL, optional = false)
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "author_id", nullable = false)
     private Author author;
+
+    @Override
+    public String toString() {
+        return "Book [id=" + id + ", title=" + title + ", price=" + price + ", isbn=" + isbn + "]";
+    }
+
 }
