@@ -74,9 +74,9 @@ Uygulama, REST API'leri aracılığıyla kitap, yayınevi ve yazar verilerini y�
 
 ### API URL'leri
 
-- **Kitap API:** `/api/books`
-- **Yayınevi API:** `/api/publishers`
-- **Yazar API:** `/api/authors`
+- **Kitap API:** `/books`
+- **Yayınevi API:** `/publishers`
+- **Yazar API:** `/authors`
 
 ### Örnek Kullanım
 
