@@ -1,6 +1,8 @@
 package com.anke.Anke_LibraryApp.controller;
 
-import com.anke.Anke_LibraryApp.entity.Publisher;
+import com.anke.Anke_LibraryApp.entity.*;
+import com.anke.Anke_LibraryApp.service.AuthorService;
+import com.anke.Anke_LibraryApp.service.BookService;
 import com.anke.Anke_LibraryApp.service.PublisherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +13,7 @@ import java.util.List;
 @RequestMapping("/publishers")
 public class PublisherController {
 
-    //    private BookService bookService;
+//    private BookService bookService;
 //    private AuthorService authorService;
     private PublisherService service;
 
@@ -20,12 +22,12 @@ public class PublisherController {
         this.service = service;
     }
 
-//    @Autowired
-//    public PublisherController(BookService bookService, AuthorService authorService, PublisherService service) {
-//        this.bookService = bookService;
-//        this.authorService = authorService;
-//        this.service = service;
-//    }
+    /*@Autowired
+    public PublisherController(BookService bookService, AuthorService authorService, PublisherService service) {
+        this.bookService = bookService;
+        this.authorService = authorService;
+        this.service = service;
+    }*/
 
     @GetMapping
     public List<Publisher> getAllPublishers() {
@@ -37,7 +39,7 @@ public class PublisherController {
         return service.createPublisher(publisher);
     }
 
-   /* @PostMapping("/deneme/create")
+    /*@PostMapping("/deneme/create")
     public String deneme() {
 
         Book book = new Book();
@@ -53,21 +55,17 @@ public class PublisherController {
         publisher.setName("Yayınevi");
 
         publisher.setBooks(List.of(book));
-        System.out.println(publisher);
         book.setPublisher(publisher);
-        System.out.println(book);
         book.setAuthor(author);
-        System.out.println(book);
         author.setBooks(List.of(book));
-        System.out.println(author);
 
         service.createPublisher(publisher);
         return "Book: " + book + "\nAuthor: " + author + "\nPublisher: " + publisher;
-    }
+    }*/
 
-    @PostMapping("/deneme/update")
+    /*@PostMapping("/deneme/update")
     public String denemeUpdate() {
-        Publisher publisher = service.getPublisherById(1L);
+        Publisher publisher = service.getPublisherById(7L);
 
         Book book = new Book();
         book.setTitle("2_Kitap");
@@ -96,21 +94,27 @@ public class PublisherController {
         author3.setFirstName("4_Yazar");
         author3.setLastName("4_Soyad");
 
+        System.out.println(publisher);
+        publisher.addBook(book);
         publisher.addBook(book2);
         publisher.addBook(book3);
-        System.out.println(publisher);
-        //book.setPublisher(publisher);
-        System.out.println(book2);
-        book2.setAuthor(author2);
-        System.out.println(book2);
-        author2.setBooks(List.of(book2));
-        System.out.println(author2);
-        book3.setAuthor(author3);
-        System.out.println(book3);
-        author3.setBooks(List.of(book3));
-        System.out.println(author3);
 
-        service.createPublisher(publisher);
+        book.setPublisher(publisher);
+        book2.setPublisher(publisher);
+        book3.setPublisher(publisher);
+
+        author.addBook(book);
+        author.addBook(book2);
+        author.addBook(book3);
+        System.out.println(author);
+
+        book.setAuthor(author);
+        book2.setAuthor(author);
+        book3.setAuthor(author);
+
+        System.out.println(publisher);
+
+        service.updatePublisher(publisher);
         return "Book: " + book + "\nAuthor: " + author + "\nPublisher: " + publisher;
     }*/
 }

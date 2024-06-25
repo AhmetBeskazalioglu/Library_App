@@ -4,12 +4,14 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Entity
 @Table(name = "author")
 public class Author {
@@ -26,6 +28,10 @@ public class Author {
 
     @OneToMany(mappedBy = "author",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
     @JsonBackReference
-    private List<Book> books;
+    private List<Book> books=new ArrayList<>();
 
+    public void addBook(Book book) {
+        books.add(book);
+        //book.setAuthor(this);
+    }
 }

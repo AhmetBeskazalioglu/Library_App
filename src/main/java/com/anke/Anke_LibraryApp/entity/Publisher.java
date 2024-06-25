@@ -10,6 +10,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Entity
 @Table(name = "publisher")
 public class Publisher {
@@ -25,6 +26,11 @@ public class Publisher {
             mappedBy = "publisher",fetch = FetchType.LAZY)
     @JsonBackReference
     private List<Book> books;
+
+    public void addBook(Book book) {
+        books.add(book);
+        //book.setPublisher(this);
+    }
 
 }
 

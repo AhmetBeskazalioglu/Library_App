@@ -7,6 +7,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Entity
 @Table(name = "book")
 public class Book {
@@ -17,6 +18,7 @@ public class Book {
 
     @Column(name = "title", nullable = false)
     private String title;
+
 
     @Column(name = "price", nullable = false)
     private Double price;
